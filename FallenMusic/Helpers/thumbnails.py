@@ -134,7 +134,7 @@ async def gen_thumb(videoid, user_id):
             im.save(f"cache/cropped{videoid}.png")
 
         crop_img = Image.open(f"cache/cropped{videoid}.png")
-        logo = crop_img.convert("RGBA")
+        logo = crop_img.convert("RGBA") 
         logo.thumbnail((365, 365), Image.LANCZOS)
         width = int((1280 - 365) / 2)
         background = Image.open(f"cache/temp{videoid}.png")
@@ -179,7 +179,7 @@ async def gen_thumb(videoid, user_id):
                 )
         except:
             pass
-        text_w, text_h = draw.textsize(f"Duration: {duration} Mins", font=arial)
+        text_w, text_h = draw.textbox(f"Duration: {duration} Mins", font=arial)
         draw.text(
             ((1280 - text_w) / 2, 660),
             f"Duration: {duration} Mins",
@@ -303,7 +303,7 @@ async def gen_qthumb(videoid, user_id):
                 font=font,
             )
             if para[0]:
-                text_w, text_h = draw.textsize(f"{para[0]}", font=font)
+                text_w, text_h = draw.textbox(f"{para[0]}", font=font)
                 draw.text(
                     ((1280 - text_w) / 2, 530),
                     f"{para[0]}",
@@ -324,7 +324,7 @@ async def gen_qthumb(videoid, user_id):
                 )
         except:
             pass
-        text_w, text_h = draw.textsize(f"Duration: {duration} Mins", font=arial)
+        text_w, text_h = draw.textbox(f"Duration: {duration} Mins", font=arial)
         draw.text(
             ((1280 - text_w) / 2, 660),
             f"Duration: {duration} Mins",
